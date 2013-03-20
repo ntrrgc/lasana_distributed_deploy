@@ -1,0 +1,12 @@
+zone "lasa.nya." {
+    type master;
+    file "/etc/bind/db.lasa.nya";
+    allow-update { localhost; };
+};
+
+include "/etc/bind/rndc.key";
+controls {
+    inet 127.0.0.1 allow { localhost; } keys { "rndc-key"; };
+};
+
+include "/etc/bind/zones.rfc1918";
